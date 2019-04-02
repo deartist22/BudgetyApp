@@ -28,7 +28,11 @@ var budgetController = (function () {
 			var newItem, ID;
 
 			//Create new ID
-			ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
+			if(data.allItems[type].length > 0) {
+				ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
+			} else {
+				ID = 0;
+			}
 
 			//Create new item based on 'inc' or 'exp' type
 			if(type === 'exp') {
@@ -79,6 +83,7 @@ var UIController = (function() {
 
 
 var controller = (function(budgetCtrl,UICtrl) {
+	var input, newItem;
 
 	var setupEventListeners = function() {
 		var DOM = UICtrl.getDOMStrings();	
@@ -94,7 +99,7 @@ var controller = (function(budgetCtrl,UICtrl) {
 
 	var ctrlAddItem = function() {
 		var input = UICtrl.getInput();
-		console.log(input);
+		var newItem = budgetCtrl.addItem(input.type, input.description, input.value);
 	};
 
 	return {
