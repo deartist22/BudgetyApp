@@ -59,10 +59,10 @@ var budgetController = (function () {
 		calculateBudget: function() {
 
 			//calculate total income and expenses
-
-
+			calculateTotal("exp");
+			calculateTotal("inc");
 			//calculate the budget: income - expenses
-
+			data.budget = data.totals.inc - data.totals.exp;
 			//calculate the percentage of income that we spent
 		},
 
