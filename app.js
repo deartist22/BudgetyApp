@@ -46,6 +46,10 @@ var budgetController = (function () {
 
 			//Return the new element
 			return newItem;
+		},
+
+		testing: function() {
+			return data;
 		}
 
 	};
@@ -95,7 +99,7 @@ var UIController = (function() {
 		},
 
 		clearFields: function() {
-			var fields. fieldsArr;
+			var fields, fieldsArr;
 
 			fields = document.querySelectorAll(DOMstrings.inputDescription + "," + DOMstrings.inputValue)
 
