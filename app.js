@@ -146,13 +146,17 @@ var controller = (function(budgetCtrl,UICtrl) {
 
 		input = UICtrl.getInput();
 
-		newItem = budgetCtrl.addItem(input.type, input.description, input.value);
+		if(input.description !== "" && !isNaN(input.value) && input.value > 0) {
 
-		UICtrl.addListItem(newItem, input.type);
+			newItem = budgetCtrl.addItem(input.type, input.description, input.value);
 
-		UICtrl.clearFields;
+			UICtrl.addListItem(newItem, input.type);
 
-		updateBudget();
+			UICtrl.clearFields;
+
+			updateBudget();
+			
+		}
 	};
 
 	return {
