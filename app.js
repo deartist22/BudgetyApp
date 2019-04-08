@@ -243,7 +243,7 @@ var controller = (function(budgetCtrl,UICtrl) {
 			
 			splitID = itemID.split("-");
 			type = splitID[0];
-			ID = splitID[1];
+			ID = parseInt(splitID[1]);
 
 			budgetCtrl.deleteItem(type, ID);
 		}
