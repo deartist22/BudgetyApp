@@ -260,12 +260,15 @@ var UIController = (function() {
 		},
 
 		displayYear: function() {
-			var now, year;
+			var now, month, year;
 			var now = new Date();
+
+			monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+			month = now.getMonth();
 
 			year = now.getFullYear();
 
-			document.querySelector(DOMstrings.dateLabel).textContent = year;
+			document.querySelector(DOMstrings.dateLabel).textContent = monthNames[month] + " " + year;
 		},
 
 		getDOMStrings: function() {
